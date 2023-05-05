@@ -58,7 +58,7 @@ select concat(s.first_name, ' ', s.last_name) as StaffName, rentals,
   		group by staff_id) q on s.staff_id = q.staff_id ;
 ``` 
 
-### Задание 5*
+### Задание 5* 
 
 Найдите фильмы, которые ни разу не брали в аренду.
 ``` SQL
