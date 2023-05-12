@@ -37,7 +37,10 @@ select count(*)
 ``` SQL
 select month(r.rental_date) as 'Месяц', count(*) as 'Количество аренд'
   from rental r 
-  where (select month(p.payment_date) as month from payment p group by month order by count(*) desc limit 1) = month(r.rental_date)
+  where (select date_format(p.payment_date, '%m.%Y') as month 
+  	from payment p group by month 
+  	order by count(*) desc 
+  	limit 1) = date_format(r.rental_date, '%m.%Y')
   group by 1 ;
 ``` 
 
